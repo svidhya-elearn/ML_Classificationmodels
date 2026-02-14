@@ -35,12 +35,22 @@ st.markdown("---")
 st.markdown("##Download Sample Test Dataset")
 
 github_file_url = "https://raw.githubusercontent.com/svidhya-elearn/ML_Classificationmodels/tree/main/test_data/test_dataset.csv"
-response = requests.get(github_file_url)
-st.sidebar.download_button(
-    label="Download Sample Test CSV",
-    data=response.content,
-    file_name="test_dataset.csv",
-    mime="text/csv"
+st.markdown(
+    f"""
+    <a href="{github_file_url}" target="_blank">
+        <button style="
+            background-color:#28a745;
+            color:white;
+            padding:12px 25px;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;">
+            Download Test CSV
+        </button>
+    </a>
+    """,
+    unsafe_allow_html=True
 )
 
 st.markdown("---")
