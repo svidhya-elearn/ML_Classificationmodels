@@ -34,10 +34,12 @@ st.markdown("---")
 # -------------------------------------------------
 st.markdown("##Download Sample Test Dataset")
 
-github_file_url = "https://github.com/svidhya-elearn/ML_Classificationmodels/main/test_data/test_dataset.csv"
+github_file_url = "https://github.com/svidhya-elearn/ML_Classificationmodels/raw/main/test_data/test_dataset.csv"
+st.download_button()
+
 st.markdown(
     f"""
-    <a href="{github_file_url}" target="_blank">
+    <a href="{github_file_url}" download>
         <button style="
             background-color:#28a745;
             color:white;
