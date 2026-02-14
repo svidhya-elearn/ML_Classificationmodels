@@ -157,35 +157,42 @@ if uploaded_file is not None:
         # -------------------------------------------------
         # Confusion Matrix
         # -------------------------------------------------
-        st.markdown("## 📌 Confusion Matrix")
-
-        cm = confusion_matrix(y, y_pred)
-
-        fig, ax = plt.subplots(figsize=(10, 8))
-        sns.heatmap(
-            cm,
-            cmap="Blues",
-            ax=ax,
-            cbar=False
+        st.markdown(
+            f"<h2 style='font-weight:bold;'> Confusion Matrix - {model_option}</h2>",
+            unsafe_allow_html=True
         )
-        ax.set_xlabel("Predicted Label")
-        ax.set_ylabel("True Label")
 
-        st.pyplot(fig)
+        col1, col2 = st.columns([2, 1])
 
-        st.markdown("---")
+        # ---------------- Confusion Matrix ----------------
+        with col1:
+            st.markdown("### Confusion Matrix")
 
-        # -------------------------------------------------
-        # Prediction Table
-        # -------------------------------------------------
-        st.markdown("## 🔎 Sample Predictions")
+            cm = confusion_matrix(y, y_pred)
 
-        result_df = pd.DataFrame({
-            "Actual Label": le.inverse_transform(y),
-            "Predicted Label": le.inverse_transform(y_pred)
-        })
+            fig, ax = plt.subplots(figsize=(8, 6))
+            sns.heatmap(
+                cm,
+                cmap="Blues",
+                cbar=False,
+                ax=ax
+            )
 
-        st.dataframe(result_df.head(20))
+            ax.set_xlabel("Predicted Label")
+            ax.set_ylabel("Actual Label")
+
+            st.pyplot(fig)
+
+        # ---------------- Sample Predictions ----------------
+        with col2:
+            st.markdown("### Sample Predictions")
+
+            result_df = pd.DataFrame({
+                "Actual": le.inverse_transform(y),
+                "Predicted": le.inverse_transform(y_pred)
+            })
+
+            st.dataframe(result_df.head(15), use_container_width=True)
 
 else:
     st.info("Please upload a test CSV file to evaluate the selected model.")
