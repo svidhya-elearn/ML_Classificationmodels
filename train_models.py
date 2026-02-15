@@ -105,7 +105,6 @@ def evaluate_model(model, model_name):
         multi_class="ovr"
     )
 
-
 # =================================================
 # 1️⃣ Logistic Regression
 # =================================================
