@@ -70,9 +70,9 @@ print("Train-Test split completed.")
 test_df = X_test.copy()
 test_df["letter"] = label_encoder.inverse_transform(y_test)
 
-test_df.to_csv("test_data/test_dataset.csv", index=False)
+test_df.to_csv("test_data/letter-recognition-test-data.csv", index=False)
 
-print("Test dataset saved inside 'test_data/test_dataset.csv'")
+print("Test dataset saved inside 'test_data/letter-recognition-test-data.csv'")
 
 
 # -------------------------------------------------

@@ -37,12 +37,12 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-github_file_url = "https://github.com/svidhya-elearn/ML_Classificationmodels/raw/main/test_data/test_dataset.csv"
+github_file_url = "https://github.com/svidhya-elearn/ML_Classificationmodels/raw/main/test_data/letter-recognition-test-data.csv"
 response = requests.get(github_file_url)
 st.download_button(
     label="Download Sample Test CSV",
     data=response.content,
-    file_name="test_dataset.csv",
+    file_name="letter-recognition-test-data.csv",
     mime="text/csv"
 )
 #
