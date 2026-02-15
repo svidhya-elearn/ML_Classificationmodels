@@ -32,7 +32,10 @@ st.markdown("---")
 # -------------------------------------------------
 # Download Test CSV From GitHub
 # -------------------------------------------------
-st.markdown("##Download Sample Test Dataset")
+st.markdown(
+    "<h3 style='font-weight:bold;'>Download Sample Test Dataset</h3>",
+    unsafe_allow_html=True
+)
 
 github_file_url = "https://github.com/svidhya-elearn/ML_Classificationmodels/raw/main/test_data/test_dataset.csv"
 response = requests.get(github_file_url)
@@ -66,7 +69,10 @@ st.markdown("---")
 # -------------------------------------------------
 # Upload CSV Section
 # -------------------------------------------------
-st.markdown("##Upload Test CSV File")
+st.markdown(
+    "<h3 style='font-weight:bold;'>Upload Test CSV File</h3>",
+    unsafe_allow_html=True
+)
 uploaded_file = st.file_uploader("Upload CSV file (must include 'letter' column)", type=["csv"])
 
 st.markdown("---")
@@ -74,8 +80,10 @@ st.markdown("---")
 # -------------------------------------------------
 # Model Selection
 # -------------------------------------------------
-st.markdown("##Select Machine Learning Model")
-
+st.markdown(
+    "<h3 style='font-weight:bold;'>Select Machine Learning Model</h3>",
+    unsafe_allow_html=True
+)
 model_option = st.selectbox(
     "Choose Model",
     (
