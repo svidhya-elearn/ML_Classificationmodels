@@ -183,16 +183,6 @@ if uploaded_file is not None:
 
             st.pyplot(fig)
 
-        # ---------------- Sample Predictions ----------------
-        with col2:
-            st.markdown("### Sample Predictions")
-
-            result_df = pd.DataFrame({
-                "Actual": le.inverse_transform(y),
-                "Predicted": le.inverse_transform(y_pred)
-            })
-
-            st.dataframe(result_df.head(15), use_container_width=True)
 
 else:
     st.info("Please upload a test CSV file to evaluate the selected model.")
